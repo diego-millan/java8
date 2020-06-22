@@ -23,7 +23,7 @@ public class Capitulo2 {
 //            }
 //        };
 
-//        Consumer<Usuario> mostrador = usuario -> { System.out.println(usuario.getNome());};
+//        Consumer<Usuario> mostrador = (Usuario usuario) -> { System.out.println(usuario.getNome());};
 
 //        Consumer<Usuario> mostrador = usuario -> System.out.println(usuario.getNome());
 
