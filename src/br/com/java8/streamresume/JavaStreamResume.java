@@ -1,6 +1,9 @@
 package br.com.java8.streamresume;
 
-import java.util.ArrayList;
+import br.com.java8.streamresume.domain.Boat;
+import br.com.java8.streamresume.domain.Car;
+import br.com.java8.streamresume.domain.Vehicle;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -69,7 +72,7 @@ public class JavaStreamResume {
 
         // Chaining Streams - When an operation return a stream, you can chain with other
         Stream<Car> cars = Arrays.asList(new Car("Blue", 4)).stream();
-        
+
         List<String> vehiclesString = cars
                 .filter(car -> car.getWheelsNumber() > 2)
                 .map(car -> "A " + car.getColor() + " car has " + car.getWheelsNumber() + " of wheels.")

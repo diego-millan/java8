@@ -1,4 +1,4 @@
-package br.com.java8.streamresume;
+package br.com.java8.streamresume.domain;
 
 public class Car extends Vehicle {
     private String color;
