@@ -3,7 +3,9 @@ package br.com.java8.streamresume;
 import br.com.java8.streamresume.domain.Boat;
 import br.com.java8.streamresume.domain.Car;
 import br.com.java8.streamresume.domain.Vehicle;
+import com.sun.jdi.request.DuplicateRequestException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +38,19 @@ public class JavaStreamResume {
         Optional<Integer> sum = Stream
                 .of(1,3,5)
                 .reduce((accumulative, currentIndex) -> accumulative + currentIndex);
+
+        // Reduce using validation
+        String color = "blue";
+        List<Car> carList = Arrays.asList(
+                new Car("red", 4),
+                new Car("blue", 4));
+
+        Optional<Car> checkDuplicated = carList.stream()
+                .filter(value -> value.getColor().equals(color))
+                .reduce((element, otherElement) -> {
+                    throw new DuplicateRequestException();
+                });
+
         // Sum should be ((1+3)+5) = 9 - In this case... Optional.get() = 9;
 
         // anyMatch, verify if have any occurrence of an expression
