@@ -93,8 +93,18 @@ public class JavaStreamResume {
                 .map(car -> "A " + car.getColor() + " car has " + car.getWheelsNumber() + " of wheels.")
                 .collect(Collectors.toList());
 
+        // Recursive Stream
+        public static Stream<File> getFiles(File file) {
+             return Arrays.stream(file.listFiles())
+                     .filter(f -> !f.getName().startsWith("."))
+                     .flatMap(f -> {
+                        if(f.isDirectory()) {
+                            return getFiles(f);
+                        } else {
+                            return Stream.of(f);
+                        }
+                    });
 
-
-
+        }
     }
 }
